@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Redirecting to App...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    function openApp() {
+      const params = new URLSearchParams(window.location.search);
+      const deepLink = params.get("target") || "carpoolapp://auth/callback";
+ 
+      window.location = deepLink;
+ 
+      // Fallback if app is not installed
+      setTimeout(() => {
+        // Show fallback message or redirect to Play Store/App Store
+        window.location = "https://yourdomain.com/download"; // optional
+      }, 2000);
+    }
+</script>
+</head>
+<body onload="openApp()">
+<p>Opening your app...</p>
+</body>
+</html>
